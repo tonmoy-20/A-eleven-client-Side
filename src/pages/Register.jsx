@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
@@ -11,13 +11,32 @@ const Register = () => {
   const { registerWithEmailPassword, user, setUser, handleGoogleSignIn } =
     useContext(AuthContext);
 
+  const [upazilas, setUpazilas] = useState([]);
+
+  const [districts, setDistricts] = useState([]);
+
+  const [district, setDistrict] = useState("");
+
+  const [upozila, setUpozila] = useState("");
+
+  useEffect(() => {
+    axios.get("./upazila.json").then((res) => {
+      setUpazilas(res.data.upazilas);
+    });
+
+    axios.get("./district.json").then((res) => {
+      setDistricts(res.data.districts);
+    });
+  }, []);
+  console.log(upazilas);
+
   const handelSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const pass = e.target.password.value;
     const name = e.target.name.value;
     const photourl = e.target.photoUrl;
-    const role = e.target.role.value;
+    const BloodGroup = e.target.BloodGroup.value;
 
     const file = photourl.files[0];
     const uppercase = /[A-Z]/;
@@ -48,7 +67,9 @@ const Register = () => {
       pass,
       name,
       mainUrl,
-      role,
+      BloodGroup,
+      district,
+      upozila,
     };
 
     if (res.data.success == true) {
@@ -119,13 +140,52 @@ const Register = () => {
                   placeholder="Your PhotoUrl"
                 />
                 <select
-                  name="role"
-                  defaultValue="Choose a role"
+                  name="BloodGroup"
+                  defaultValue="Choose Blood Group"
                   className="select"
                 >
-                  <option disabled={true}>Choose a role</option>
-                  <option value="manager">Manager</option>
-                  <option value="buyer">Buyer</option>
+                  <option disabled={true}>Choose Blood Group</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="AB-">AB-</option>
+                  <option value="AB+">AB+</option>
+                </select>
+
+                <select
+                  value={district}
+                  onChange={(e) => {
+                    setDistrict(e.target.value);
+                  }}
+                  className="select"
+                >
+                  <option disabled selected value="">
+                    District Name
+                  </option>
+                  {districts.map((d) => (
+                    <option value={d?.name} key={d?.id}>
+                      {d?.name}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  value={upozila}
+                  onChange={(e) => {
+                    setUpozila(e.target.value);
+                  }}
+                  className="select"
+                >
+                  <option disabled selected value="">
+                    Upazila Name
+                  </option>
+                  {upazilas.map((u) => (
+                    <option value={u?.name} key={u?.id}>
+                      {u?.name}
+                    </option>
+                  ))}
                 </select>
 
                 <label className="label">Password</label>

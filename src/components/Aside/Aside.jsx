@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   ShoppingBasket,
 } from "lucide-react";
+import { MdOutlineAddCircle } from "react-icons/md";
 
 const Aside = () => {
   const linkClass = ({ isActive }) =>
@@ -28,24 +29,19 @@ const Aside = () => {
 
       {/* Menu */}
       <nav className="flex-1 px-4 py-6 space-y-2">
-        <NavLink to="/dashboard/main" className={linkClass}>
+        <NavLink to="/dashboard" className={linkClass}>
           <LayoutDashboard size={20} />
           Dashboard
         </NavLink>
-
+        {/* 
         <NavLink to="/dashboard/users" className={linkClass}>
           <Users size={20} />
           Manage Users
-        </NavLink>
-
-        {/* <NavLink to="/dashboard/orders" className={linkClass}>
-          <ShoppingCart size={20} />
-          Orders
         </NavLink> */}
 
-        <NavLink to="/dashboard/add-products" className={linkClass}>
-          <ShoppingBasket size={20} />
-          Add Products
+        <NavLink to="/dashboard/add-request" className={linkClass}>
+          <MdOutlineAddCircle size={20} />
+          Add Request
         </NavLink>
 
         <NavLink to="/dashboard/manage-products" className={linkClass}>
