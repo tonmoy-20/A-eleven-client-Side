@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../../Provider/AuthProvider";
 import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecqure";
 
 const AddRequest = () => {
   const { user } = useContext(AuthContext);
@@ -11,6 +12,8 @@ const AddRequest = () => {
   const [district, setDistrict] = useState("");
 
   const [upozila, setUpozila] = useState("");
+
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     axios.get("../upazila.json").then((res) => {
@@ -28,8 +31,8 @@ const AddRequest = () => {
 
     const requester_name = form.recipientName.value;
     const requester_email = form.requester_email.value;
-    const requester_district = form.requester_district;
-    const requester_upazila = form.requester_upazila;
+    const requester_district = form.requester_district.value;
+    const requester_upazila = form.requester_upazila.value;
     const hospitalName = form.hospitalName.value;
     const fullAddress = form.fullAddress.value;
     const bloodGroup = form.bloodGroup.value;
@@ -37,7 +40,7 @@ const AddRequest = () => {
     const donationTime = form.donationTime.value;
     const requestMessage = form.requestMessage.value;
 
-    formData = {
+    const formData = {
       requester_name,
       requester_email,
       requester_district,
@@ -50,6 +53,13 @@ const AddRequest = () => {
       requestMessage,
       donation_status: "pending",
     };
+
+    axiosSecure
+      .post("/requests", formData)
+      .then((res) => {
+        alert(res.data.insertedId);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -58,7 +68,7 @@ const AddRequest = () => {
         Blood Donation Request Form
       </h2>
 
-      <form className="space-y-4">
+      <form onSubmit={handleRequest} className="space-y-4">
         {/* Requester Info */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
