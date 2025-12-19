@@ -31,9 +31,7 @@ const AllUsers = () => {
           <thead>
             <tr>
               <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
+                <label></label>
               </th>
               <th>Name</th>
               <th> Address & Email</th>
@@ -46,9 +44,7 @@ const AllUsers = () => {
             {users?.map((user) => (
               <tr>
                 <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
+                  <label></label>
                 </th>
                 <td>
                   <div className="flex items-center gap-3">

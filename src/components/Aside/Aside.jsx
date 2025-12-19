@@ -1,14 +1,5 @@
 import { NavLink } from "react-router";
-import {
-  LayoutDashboard,
-  Users,
-  ShoppingCart,
-  BarChart3,
-  Settings,
-  LogOut,
-  ShieldCheck,
-  ShoppingBasket,
-} from "lucide-react";
+import { LayoutDashboard, Users, LogOut, NotebookPen } from "lucide-react";
 import { MdOutlineAddCircle } from "react-icons/md";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -58,14 +49,9 @@ const Aside = () => {
           </NavLink>
         )}
 
-        <NavLink to="/dashboard/manage-products" className={linkClass}>
-          <ShoppingBasket size={20} />
-          Manage Products
-        </NavLink>
-
-        <NavLink to="/dashboard/settings" className={linkClass}>
-          <Settings size={20} />
-          Settings
+        <NavLink to="/dashboard/my-request" className={linkClass}>
+          <NotebookPen size={20} />
+          My Request
         </NavLink>
       </nav>
 
