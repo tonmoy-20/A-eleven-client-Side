@@ -39,10 +39,10 @@ const Navbar = () => {
               <Link>All Request </Link>
             </li>
             <li>
-              <Link>Search </Link>
+              <Link to={"/search-request"}>Search </Link>
             </li>
             <li>
-              <Link>Donate </Link>
+              <Link to={"/donate"}>Donate </Link>
             </li>
           </ul>
         </div>
@@ -54,7 +54,7 @@ const Navbar = () => {
             <Link>All Request </Link>
           </li>
           <li>
-            <Link>Search </Link>
+            <Link to={"/search-request"}>Search </Link>
           </li>
           <li>
             <Link to={"/donate"}>Donate </Link>
