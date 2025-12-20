@@ -26,7 +26,8 @@ const SearchRequest = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const bloodGroup = e.target.BloodGroup.value;
+    const bloodGroup = e.target.blood.value;
+    console.log(bloodGroup);
 
     axiosInstance
       .get(
@@ -41,7 +42,7 @@ const SearchRequest = () => {
     <div>
       <form onSubmit={handleSearch} className="fieldset flex">
         <select
-          name="BloodGroup"
+          name="blood"
           defaultValue="Choose Blood Group"
           className="select"
         >
