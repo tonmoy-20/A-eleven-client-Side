@@ -89,7 +89,7 @@ const SearchRequest = () => {
             </option>
           ))}
         </select>
-        <button className="btn">Search</button>
+        <button className="btn btn-secondary">Search</button>
       </form>
     </div>
   );

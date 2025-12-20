@@ -3,13 +3,13 @@ import { Link } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.config";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 const notify = () => toast(" Successfully Registerd.");
 const Register = () => {
-  const { registerWithEmailPassword, user, setUser, handleGoogleSignIn } =
-    useContext(AuthContext);
+  // const { registerWithEmailPassword, user, setUser, handleGoogleSignIn } =
+  const { registerWithEmailPassword, user, setUser } = useContext(AuthContext);
 
   const [upazilas, setUpazilas] = useState([]);
 
@@ -100,14 +100,14 @@ const Register = () => {
     }
   };
 
-  const googleSignUp = () => {
-    handleGoogleSignIn()
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
-      })
-      .catch((err) => console.log(err));
-  };
+  // const googleSignUp = () => {
+  //   handleGoogleSignIn()
+  //     .then((result) => {
+  //       const user = result.user;
+  //       setUser(user);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   console.log(user);
 
@@ -198,9 +198,9 @@ const Register = () => {
                 {/* <div>
                   <a className="link link-hover">Forgot password?</a>
                 </div> */}
-                <button onClick={googleSignUp} className="btn  ">
+                {/* <button onClick={googleSignUp} className="btn  ">
                   <FcGoogle />o o g l e
-                </button>
+                </button> */}
                 <div>
                   <span>Already have an account? </span>
                   <Link className="text-blue-500 font-medium" to="/login">

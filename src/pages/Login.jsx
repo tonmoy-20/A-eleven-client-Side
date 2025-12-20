@@ -3,14 +3,16 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import auth from "../firebase/firebase.config";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
-  const { setUser, handleGoogleSignIn } = useContext(AuthContext);
+  // const { setUser, handleGoogleSignIn } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
+  const [setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,19 +31,19 @@ const Login = () => {
       });
   };
 
-  const googleSignIn = () => {
-    handleGoogleSignIn()
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
-        navigate(location.state ? location.state : "/");
-      })
-      .catch((err) => console.log(err));
-  };
+  // const googleSignIn = () => {
+  //   handleGoogleSignIn()
+  //     .then((result) => {
+  //       const user = result.user;
+  //       setUser(user);
+  //       navigate(location.state ? location.state : "/");
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
-  const handleForget = () => {
-    navigate(`/forget/${email}`);
-  };
+  // const handleForget = () => {
+  //   navigate(`/forget/${email}`);
+  // };
 
   return (
     <div>
@@ -67,13 +69,13 @@ const Login = () => {
                   placeholder="Password"
                 />
                 <div>
-                  <button onClick={handleForget} className="link link-hover">
+                  {/* <button onClick={handleForget} className="link link-hover">
                     Forgot password?
-                  </button>
+                  </button> */}
                 </div>
-                <button onClick={googleSignIn} className="btn  ">
+                {/* <button onClick={googleSignIn} className="btn  ">
                   <FcGoogle />o o g l e
-                </button>
+                </button> */}
                 <div>
                   <span>Don't have any account? </span>
                   <Link className="text-purple-500 font-medium" to="/signup">

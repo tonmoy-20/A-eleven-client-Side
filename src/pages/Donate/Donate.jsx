@@ -39,7 +39,7 @@ const Donate = () => {
           placeholder="Type here"
           className="input"
         />
-        <button className="btn btn-primary" type="submit">
+        <button className="btn btn-accent text-white" type="submit">
           Donate
         </button>
       </form>

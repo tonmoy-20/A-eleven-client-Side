@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { signOut } from "firebase/auth";
 import auth from "../firebase/firebase.config";
-
+import logo from "../assets/logo.png";
 const Navbar = () => {
   const { user } = useContext(AuthContext);
 
@@ -36,6 +36,9 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
+              <Link to={"/"}>Home </Link>
+            </li>
+            <li>
               <Link>All Request </Link>
             </li>
             <li>
@@ -46,10 +49,16 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link to={"/"} className="btn btn-ghost text-xl text-red-500 font-bold">
+          <img className="w-10 h-10" src={logo} alt="" />
+          Donate <br /> Blood
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 text-xl font-semibold ">
+          <li>
+            <Link to={"/"}>Home </Link>
+          </li>
           <li>
             <Link>All Request </Link>
           </li>
@@ -57,18 +66,25 @@ const Navbar = () => {
             <Link to={"/search-request"}>Search </Link>
           </li>
           <li>
-            <Link to={"/donate"}>Donate </Link>
+            <Link to={"/donate"}>Fund </Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to={"/dashboard"} className="btn btn-primary mr-2">
+        <Link to={"/dashboard"} className="btn btn-secondary btn-xs mr-2">
           Dashboard
         </Link>
         {user ? (
-          <button onClick={logout} className="btn">
-            Logout
-          </button>
+          <>
+            <img
+              src={user?.photoURL}
+              alt="User Avatar"
+              className="w-10 h-10 rounded-full border border-gray-300"
+            />
+            <button onClick={logout} className="btn ml-2">
+              Logout
+            </button>
+          </>
         ) : (
           <Link to="/login" className="btn">
             Login
