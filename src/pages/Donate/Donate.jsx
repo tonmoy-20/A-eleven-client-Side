@@ -90,6 +90,7 @@ const Donate = () => {
                 <th> </th>
                 <th>Donor Name</th>
                 <th>Donate Amount</th>
+                <th>Donate Date</th>
                 <th> Payment Status</th>
               </tr>
             </thead>
@@ -98,7 +99,8 @@ const Donate = () => {
                 <tr>
                   <th>{index + 1}</th>
                   <td>{request?.donorName} </td>
-                  <td>{request?.amount} </td>
+                  <td>${request?.amount} </td>
+                  <td>{new Date(request?.paidAt).toLocaleDateString()} </td>
                   <td>{request?.payment_status} </td>
                 </tr>
               ))}

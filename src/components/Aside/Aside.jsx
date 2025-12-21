@@ -1,5 +1,11 @@
-import { NavLink } from "react-router";
-import { LayoutDashboard, Users, LogOut, NotebookPen } from "lucide-react";
+import { Link, NavLink } from "react-router";
+import {
+  LayoutDashboard,
+  Users,
+  LogOut,
+  NotebookPen,
+  UserCircle,
+} from "lucide-react";
 import { MdOutlineAddCircle } from "react-icons/md";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -30,9 +36,21 @@ const Aside = () => {
 
       {/* Menu */}
       <nav className="flex-1 px-4 py-6 space-y-2">
+        {role == "admin" && (
+          <NavLink to="/dashboard/admin-das" className={linkClass}>
+            <MdOutlineAddCircle size={20} />
+            Admin Dashboard
+          </NavLink>
+        )}
+
         <NavLink to="/dashboard" className={linkClass}>
           <LayoutDashboard size={20} />
           Dashboard
+        </NavLink>
+
+        <NavLink to="/dashboard/my-profile" className={linkClass}>
+          <UserCircle size={20} />
+          My Profile
         </NavLink>
 
         {role == "donor" && (
@@ -56,7 +74,10 @@ const Aside = () => {
       </nav>
 
       {/* Footer */}
-      <div className="px-4 py-4 border-t border-gray-800">
+      <div className="px-4 py-4 border-t flex justify-between border-gray-800">
+        <Link to={"/"}>
+          <button className="btn btn-accent">Home</button>
+        </Link>
         <button
           onClick={handleLogOut}
           className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500 hover:text-white transition"
