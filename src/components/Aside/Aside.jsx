@@ -5,6 +5,7 @@ import {
   LogOut,
   NotebookPen,
   UserCircle,
+  UserStar,
 } from "lucide-react";
 import { MdOutlineAddCircle } from "react-icons/md";
 import { useContext } from "react";
@@ -36,17 +37,17 @@ const Aside = () => {
 
       {/* Menu */}
       <nav className="flex-1 px-4 py-6 space-y-2">
-        {role == "admin" && (
-          <NavLink to="/dashboard/admin-das" className={linkClass}>
-            <MdOutlineAddCircle size={20} />
-            Admin Dashboard
-          </NavLink>
-        )}
-
         <NavLink to="/dashboard" className={linkClass}>
           <LayoutDashboard size={20} />
           Dashboard
         </NavLink>
+
+        {role == "admin" && (
+          <NavLink to="/dashboard/admin-das" className={linkClass}>
+            <UserStar size={20} />
+            Admin Dashboard
+          </NavLink>
+        )}
 
         <NavLink to="/dashboard/my-profile" className={linkClass}>
           <UserCircle size={20} />
