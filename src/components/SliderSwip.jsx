@@ -62,5 +62,5 @@ const SliderSwip = () => {
     </div>
   );
 };
-
+//
 export default SliderSwip;

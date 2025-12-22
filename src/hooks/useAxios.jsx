@@ -5,7 +5,7 @@ const axiosInstance = axios.create({
 });
 
 const useAxios = () => {
-  // return axiosInstance;
+  return axiosInstance;
 };
 
 export default useAxios;
