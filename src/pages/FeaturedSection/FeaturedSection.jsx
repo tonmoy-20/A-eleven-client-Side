@@ -42,9 +42,6 @@ const FeaturedSection = () => {
     <div className="bg-gray-50 py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          {/* <h2 className="text-sm font-bold text-red-600 uppercase tracking-widest mb-3">
-           
-          </h2> */}
           <h2 className="text-4xl font-extrabold text-red-500 mb-4">
             Our Features
           </h2>

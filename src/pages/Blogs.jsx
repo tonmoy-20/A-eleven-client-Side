@@ -48,12 +48,8 @@ const Blogs = () => {
                 {blog.shortDescription}
               </p>
 
-              <p className="text-sm font-medium text-gray-700">
-                ✍ {blog.author}
-              </p>
-              <p className="text-sm text-gray-500 mb-4">
-                📅 {blog.publishedDate}
-              </p>
+              <p className="text-sm font-medium text-gray-700">{blog.author}</p>
+              <p className="text-sm text-gray-500 mb-4">{blog.publishedDate}</p>
 
               <Link
                 to={`/blogs/${blog.id}`}

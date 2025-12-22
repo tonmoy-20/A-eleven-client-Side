@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Link } from "react-router";
 
 const AllRequests = () => {
   const [requests, setRequests] = useState([]);
@@ -9,11 +10,14 @@ const AllRequests = () => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/requests", {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("access-token")}`,
-          },
-        });
+        const res = await axios.get(
+          "https://lifedrop-rosy.vercel.app/requests",
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("access-token")}`,
+            },
+          }
+        );
         setRequests(res.data);
       } catch (error) {
         console.error(error);
@@ -70,9 +74,12 @@ const AllRequests = () => {
                 <td>{new Date(request.createdAt).toLocaleDateString()}</td>
 
                 <td>
-                  <button className="btn btn-sm btn-outline btn-info">
+                  <Link
+                    to={`/donation-details/${request._id}`}
+                    className="btn btn-sm btn-outline btn-info"
+                  >
                     View Details
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}

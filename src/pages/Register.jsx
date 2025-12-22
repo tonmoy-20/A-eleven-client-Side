@@ -82,7 +82,7 @@ const Register = () => {
             .then(() => {
               setUser(userCredential.user);
               axios
-                .post("http://localhost:5000/users", formData)
+                .post("https://lifedrop-rosy.vercel.app/users", formData)
                 .then((res) => {
                   console.log(res.data);
                 })

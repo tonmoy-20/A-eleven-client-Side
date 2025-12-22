@@ -48,12 +48,11 @@ const SearchRequest = () => {
     setLoading(true);
 
     const bloodGroup = e.target.blood.value;
-
     const selectedGroup = bloodGroup === "Choose Blood Group" ? "" : bloodGroup;
 
     axiosInstance
       .get(
-        `/requests-search?bloodGroup=${selectedGroup}&district=${district}&upazila=${upozila}`
+        `/users-search?bloodGroup=${selectedGroup}&district=${district}&upazila=${upozila}`
       )
       .then((res) => {
         setSearchResults(res.data);
@@ -61,10 +60,10 @@ const SearchRequest = () => {
       })
       .catch((err) => {
         console.log(err);
-
         setLoading(false);
       });
   };
+
   return (
     <div className="container mx-auto p-5">
       <div className="bg-white p-6 rounded-lg shadow-md mb-10">
@@ -137,30 +136,36 @@ const SearchRequest = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {searchResults.length > 0 ? (
-            searchResults.map((request) => (
+            searchResults.map((user) => (
               <div
-                key={request._id}
+                key={user._id}
                 className="card bg-base-100 shadow-xl border-t-4 border-red-500"
               >
                 <div className="card-body">
                   <div className="flex justify-between items-start">
-                    <h2 className="card-title text-red-600 font-bold text-2xl">
-                      {request.bloodGroup}
+                    <h2 className="card-title text-red-600 font-bold text-xl">
+                      {user.BloodGroup}
                     </h2>
-                    <div className="badge badge-outline">
-                      {request.status || "Pending"}
-                    </div>
+                    <div className="badge badge-success">{user.role}</div>
                   </div>
+
                   <p className="mt-2">
-                    <strong>Requester:</strong> {request.requester_name}
+                    <strong>Name:</strong> {user.name}
                   </p>
                   <p>
-                    <strong>Location:</strong> {request.requester_upazila},{" "}
-                    {request.requester_district}
+                    <strong>Email:</strong> {user.email}
                   </p>
                   <p>
-                    <strong>Date:</strong> {request.donation_date}
+                    <strong>Location:</strong> {user.upozila}, {user.district}
                   </p>
+
+                  <p>
+                    <strong>Status:</strong>{" "}
+                    <span className="text-green-600 font-semibold">
+                      {user.status}
+                    </span>
+                  </p>
+
                   <div className="card-actions justify-end mt-4">
                     <button className="btn btn-primary btn-sm">
                       View Details

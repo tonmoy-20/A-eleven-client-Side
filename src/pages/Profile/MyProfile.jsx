@@ -57,7 +57,7 @@ const Profile = () => {
       };
 
       const res = await axios.patch(
-        `http://localhost:5000/users-update/${user?.email}`,
+        `https://lifedrop-rosy.vercel.app/users-update/${user?.email}`,
         updatedDataForDB
       );
 
