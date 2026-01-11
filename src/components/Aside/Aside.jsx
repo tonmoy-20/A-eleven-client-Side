@@ -6,6 +6,7 @@ import {
   NotebookPen,
   UserCircle,
   UserStar,
+  House,
 } from "lucide-react";
 import { MdOutlineAddCircle } from "react-icons/md";
 import { useContext } from "react";
@@ -77,7 +78,9 @@ const Aside = () => {
       {/* Footer */}
       <div className="px-4 py-4 border-t flex justify-between border-gray-800">
         <Link to={"/"}>
-          <button className="btn btn-accent">Home</button>
+          <button className="btn btn-primary  hover:bg-purple-700 text-white px-5 rounded-full shadow-md">
+            <House /> Home
+          </button>
         </Link>
         <button
           onClick={handleLogOut}

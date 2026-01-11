@@ -21,41 +21,45 @@ const Blogs = () => {
 
   return (
     <div className="w-11/12 mx-auto py-10">
-      <h2 className="text-3xl font-bold text-center mb-8 text-rose-600">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-rose-600">
         Blood Donation Blogs
       </h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {blogs.map((blog) => (
           <div
             key={blog.id}
-            className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition"
+            className=" border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col"
           >
-            <figure>
+            {/* Blog Image */}
+            <div className="h-56 w-full overflow-hidden">
               <img
                 src={blog.image}
                 alt={blog.title}
-                className="h-52 w-full object-cover rounded-t-lg"
+                className="w-full h-full object-cover transform hover:scale-105 transition duration-500"
               />
-            </figure>
+            </div>
 
-            <div className="p-5">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+            {/* Blog Content */}
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-semibold  mb-3 line-clamp-2">
                 {blog.title}
               </h3>
 
-              <p className="text-gray-600 text-sm mb-4">
+              <p className=" text-sm mb-4 line-clamp-3">
                 {blog.shortDescription}
               </p>
 
-              <p className="text-sm font-medium text-gray-700">{blog.author}</p>
-              <p className="text-sm text-gray-500 mb-4">{blog.publishedDate}</p>
+              <div className="flex justify-between items-center text-sm  mb-4">
+                <span>{blog.author}</span>
+                <span>{blog.publishedDate}</span>
+              </div>
 
               <Link
                 to={`/blogs/${blog.id}`}
-                className="block text-center w-full rounded-md bg-blue-500 py-2 text-white font-medium hover:bg-rose-600 transition"
+                className="mt-auto block text-center rounded-full bg-rose-600 py-2 text-white font-medium hover:bg-rose-700 transition"
               >
-                Show Details
+                Read More
               </Link>
             </div>
           </div>

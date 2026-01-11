@@ -57,7 +57,7 @@ const Profile = () => {
       };
 
       const res = await axios.patch(
-        `https://lifedrop-rosy.vercel.app/users-update/${user?.email}`,
+        `http://localhost:5000/users-update/${user?.email}`,
         updatedDataForDB
       );
 
@@ -87,7 +87,7 @@ const Profile = () => {
   return (
     <div className="max-w-4xl mx-auto p-5">
       <Toaster />
-      <div className="flex flex-col items-center mt-5 mb-3 bg-white p-6 md:p-10 rounded-2xl shadow-xl">
+      <div className="flex flex-col items-center mt-5 mb-3  p-6 md:p-10 rounded-2xl shadow-xl">
         {/* Profile Card */}
         <div className="avatar mb-4">
           <div className="ring-primary ring-offset-base-100 w-32 rounded-full ring-2 ring-offset-2">
@@ -101,9 +101,9 @@ const Profile = () => {
           <h2 className="text-3xl font-bold text-gray-800">
             {user?.displayName}
           </h2>
-          <p className="text-gray-500 font-medium">{user?.email}</p>
+          <p className=" font-medium">{user?.email}</p>
           <div className="flex gap-2 justify-center mt-2">
-            <span className="badge badge-error p-3 text-white">
+            <span className="badge badge-error p-3 ">
               {user?.bloodGroup || "N/A"}
             </span>
             <span className="badge badge-outline p-3">

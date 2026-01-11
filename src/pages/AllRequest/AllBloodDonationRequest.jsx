@@ -10,14 +10,11 @@ const AllRequests = () => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const res = await axios.get(
-          "https://lifedrop-rosy.vercel.app/requests",
-          {
-            headers: {
-              authorization: `Bearer ${localStorage.getItem("access-token")}`,
-            },
-          }
-        );
+        const res = await axios.get("http://localhost:5000/requests", {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          },
+        });
         setRequests(res.data);
       } catch (error) {
         console.error(error);

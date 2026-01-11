@@ -19,52 +19,46 @@ const ContactUs = () => {
     <div className="container mx-auto my-16 px-4">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-red-600 mb-2">Contact Us</h2>
-        <p className="text-gray-500">Have questions? We are here to help!</p>
+        <p className="">Have questions? We are here to help!</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        <div className="space-y-8 bg-red-50 p-8 rounded-2xl shadow-sm">
-          <h3 className="text-2xl font-semibold text-gray-800">Get in Touch</h3>
+        <div className="space-y-8  p-8 rounded-2xl shadow-sm">
+          <h3 className="text-2xl font-semibold ">Get in Touch</h3>
 
           <div className="flex items-center gap-4">
-            <div className="bg-red-600 p-4 rounded-full text-white">
+            <div className="bg-red-600 p-4 rounded-full ">
               <FaPhoneAlt />
             </div>
             <div>
-              <p className="text-sm text-gray-500 uppercase tracking-wide">
-                Call Us
-              </p>
+              <p className="text-sm  uppercase tracking-wide">Call Us</p>
               <p className="text-lg font-bold">+880 1234-567890</p>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="bg-red-600 p-4 rounded-full text-white">
+            <div className="bg-red-600 p-4 rounded-full ">
               <FaEnvelope />
             </div>
             <div>
-              <p className="text-sm text-gray-500 uppercase tracking-wide">
-                Email Us
-              </p>
+              <p className="text-sm  uppercase tracking-wide">Email Us</p>
               <p className="text-lg font-bold">support@droplife.com</p>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="bg-red-600 p-4 rounded-full text-white">
+            <div className="bg-red-600 p-4 rounded-full ">
               <FaMapMarkerAlt />
             </div>
             <div>
-              <p className="text-sm text-gray-500 uppercase tracking-wide">
-                Location
-              </p>
+              <p className="text-sm  uppercase tracking-wide">Location</p>
               <p className="text-lg font-bold">Dhaka, Bangladesh</p>
             </div>
           </div>
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white p-8 rounded-2xl shadow-lg border">
+        <div className=" p-8 rounded-2xl shadow-lg border">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="form-control">
               <label className="label text-sm font-semibold">Your Name</label>

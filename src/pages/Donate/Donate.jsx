@@ -107,7 +107,7 @@ const Donate = () => {
             </tbody>
           </table>
         </div>
-        <div className="flex justify-center mt-12 gap-4">
+        <div className="flex justify-center mt-12 gap-4 mb-3">
           <button onClick={handlePrev} className="btn mr-4">
             Pev
           </button>

@@ -19,6 +19,9 @@ import BlogsDetails from "../pages/BlogsDetails";
 import AllBloodDonationRequest from "../pages/AllRequest/AllBloodDonationRequest";
 import AdminDashboard from "../pages/Dashboard/MaindashboardLayout/AdminDashboard";
 import BloodDonationReqDetails from "../pages/BloodDonationReqDetails";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import FaqPage from "../pages/FaqPage";
+import ContactUs from "../pages/ContactUsSection/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +60,18 @@ const router = createBrowserRouter([
       {
         path: "/blogs/:id",
         element: <BlogsDetails></BlogsDetails>,
+      },
+      {
+        path: "/privacy",
+        element: <PrivacyPolicy></PrivacyPolicy>,
+      },
+      {
+        path: "/faq",
+        element: <FaqPage></FaqPage>,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs></ContactUs>,
       },
       {
         path: "/donate",

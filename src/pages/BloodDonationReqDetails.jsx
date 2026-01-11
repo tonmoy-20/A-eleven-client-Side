@@ -10,9 +10,7 @@ const DonationDetails = () => {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const res = await axios.get(
-          `https://lifedrop-rosy.vercel.app/requests/${id}`
-        );
+        const res = await axios.get(`http://localhost:5000/requests/${id}`);
         setRequest(res.data);
       } catch (error) {
         console.error(error);

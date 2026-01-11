@@ -39,7 +39,7 @@ const FeaturedSection = () => {
   ];
 
   return (
-    <div className="bg-gray-50 py-20 px-4">
+    <div className=" py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-4xl font-extrabold text-red-500 mb-4">
@@ -51,17 +51,13 @@ const FeaturedSection = () => {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center border-b-4 border-transparent hover:border-red-600"
+              className=" p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center border-b-4 border-transparent hover:border-red-600"
             >
               <div className="mb-6 flex justify-center">
                 <div className="p-4 bg-red-50 rounded-full">{feature.icon}</div>
               </div>
-              <h4 className="text-xl font-bold text-gray-800 mb-3">
-                {feature.title}
-              </h4>
-              <p className="text-gray-600 leading-relaxed">
-                {feature.description}
-              </p>
+              <h4 className="text-xl font-bold  mb-3">{feature.title}</h4>
+              <p className=" leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
