@@ -3,10 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router";
 
 import "swiper/css";
-import "swiper/css/navigation";
+// import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 
 import i1 from "../assets/banerblood.jpg";
 import i4 from "../assets/herob2.jpg";
@@ -16,10 +16,10 @@ const SliderSwip = () => {
   return (
     <div className="relative h-[400px] md:h-[550px] w-full overflow-hidden">
       <Swiper
-        navigation={true}
-        pagination={{ clickable: true }}
+        pagination={{ dynamicBullets: true }}
+        // pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        modules={[Navigation, Pagination, Autoplay]}
+        modules={[Pagination, Autoplay]}
         className="mySwiper h-full w-full"
       >
         <SwiperSlide>
